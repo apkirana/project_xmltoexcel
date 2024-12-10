@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tcexamquestions>
+  <body>
+    <module>
+      <name>Latihan Dummy</name>
+      <subject>
+        <name>Contoh Soal Dummy</name>
+        
+        <!-- Pertanyaan 1 -->
+        <question>
+          <enabled>true</enabled>
+          <type>single</type>
+          <difficulty>1</difficulty>
+          <timer>0</timer>
+          <description>Berapa hasil dari 10 + 5 adalah?</description>
+          <answer>
+            <enabled>true</enabled>
+            <isright>true</isright>
+            <description>15</description>
+          </answer>
+          <answer>
+            <enabled>true</enabled>
+            <isright>false</isright>
+            <description>10</description>
+          </answer>
+          <answer>
+            <enabled>true</enabled>
+            <isright>false</isright>
+            <description>5</description>
+          </answer>
+          <answer>
+            <enabled>true</enabled>
+            <isright>false</isright>
+            <description>20</description>
+          </answer>
+        </question>
+        
+        <!-- Pertanyaan 2 -->
+        <question>
+          <enabled>true</enabled>
+          <type>single</type>
+          <difficulty>2</difficulty>
+          <timer>0</timer>
+          <description>Siapa yang menemukan teori gravitasi?</description>
+          <answer>
+            <enabled>true</enabled>
+            <isright>false</isright>
+            <description>Albert Einstein</description>
+          </answer>
+          <answer>
+            <enabled>true</enabled>
+            <isright>true</isright>
+            <description>Isaac Newton</description>
+          </answer>
+          <answer>
+            <enabled>true</enabled>
+            <isright>false</isright>
+            <description>Thomas Edison</description>
+          </answer>
+          <answer>
+            <enabled>true</enabled>
+            <isright>false</isright>
+            <description>Galileo Galilei</description>
+          </answer>
+        </question>
+
+        <!-- Pertanyaan 3 -->
+        <question>
+          <enabled>true</enabled>
+          <type>single</type>
+          <difficulty>1</difficulty>
+          <timer>0</timer>
+          <description>Hasil dari 25% dari 200 adalah?</description>
+          <answer>
+            <enabled>true</enabled>
+            <isright>true</isright>
+            <description>50</description>
+          </answer>
+          <answer>
+            <enabled>true</enabled>
+            <isright>false</isright>
+            <description>75</description>
+          </answer>
+          <answer>
+            <enabled>true</enabled>
+            <isright>false</isright>
+            <description>40</description>
+          </answer>
+          <answer>
+            <enabled>true</enabled>
+            <isright>false</isright>
+            <description>25</description>
+          </answer>
+        </question>
+
+        <!-- Pertanyaan 4 -->
+        <question>
+          <enabled>true</enabled>
+          <type>single</type>
+          <difficulty>3</difficulty>
+          <timer>0</timer>
+          <description>Mana planet terkecil di tata surya kita?</description>
+          <answer>
+            <enabled>true</enabled>
+            <isright>false</isright>
+            <description>Mars</description>
+          </answer>
+          <answer>
+            <enabled>true</enabled>
+            <isright>false</isright>
+            <description>Bumi</description>
+          </answer>
+          <answer>
+            <enabled>true</enabled>
+            <isright>true</isright>
+            <description>Merkurius</description>
+          </answer>
+          <answer>
+            <enabled>true</enabled>
+            <isright>false</isright>
+            <description>Venus</description>
+          </answer>
+        </question>
+
+        <!-- Pertanyaan 5 -->
+        <question>
+          <enabled>true</enabled>
+          <type>single</type>
+          <difficulty>1</difficulty>
+          <timer>0</timer>
+          <description>Berapa hasil dari 5 x 6?</description>
+          <answer>
+            <enabled>true</enabled>
+            <isright>false</isright>
+            <description>20</description>
+          </answer>
+          <answer>
+            <enabled>true</enabled>
+            <isright>false</isright>
+            <description>25</description>
+          </answer>
+          <answer>
+            <enabled>true</enabled>
+            <isright>true</isright>
+            <description>30</description>
+          </answer>
+          <answer>
+            <enabled>true</enabled>
+            <isright>false</isright>
+            <description>35</description>
+          </answer>
+        </question>
+        
+      </subject>
+    </module>
+  </body>
+</tcexamquestions>

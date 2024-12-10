@@ -1,0 +1,46 @@
+import xml.etree.ElementTree as ET
+import xlwt  # Pustaka untuk menulis file .xls
+
+# Parsing file XML
+tree = ET.parse('xmltemplate.xml')  # Ganti dengan file XML Anda
+root = tree.getroot()
+
+# Membuat workbook dan sheet untuk file .xls
+wb = xlwt.Workbook()
+ws = wb.add_sheet('Soal dan Jawaban')
+
+# Loop setiap elemen <question> di dalam XML, langsung mulai dari baris pertama
+for i, question in enumerate(root.findall(".//question"), start=0):  # Mulai dari baris ke-0 untuk isi data
+    soal = question.find('description').text.strip()  # Ambil teks soal
+
+    # Ambil setiap jawaban <answer>
+    answers = []
+    jawaban_benar_index = None  # Untuk menyimpan indeks jawaban benar
+    for idx, answer in enumerate(question.findall('answer')):
+        jawaban = answer.find('description').text.strip()  # Ambil teks dari jawaban
+        answers.append(jawaban)
+        # Periksa apakah ini adalah jawaban benar
+        if answer.find('isright') is not None and answer.find('isright').text.strip() == 'true':
+            jawaban_benar_index = idx  # Simpan indeks jawaban benar (0, 1, 2, 3)
+
+    # Pastikan ada tepat 4 pilihan jawaban
+    while len(answers) < 4:
+        answers.append('')
+
+    # Tentukan huruf jawaban benar
+    jawaban_benar = ['a', 'b', 'c', 'd'][jawaban_benar_index] if jawaban_benar_index is not None else ''
+
+    # Menulis data ke baris Excel
+    ws.write(i, 0, i + 1)                       # np (nomor pertanyaan dimulai dari 1)
+    ws.write(i, 1, soal)                       # soal
+    ws.write(i, 2, answers[0])                 # a
+    ws.write(i, 3, answers[1])                 # b
+    ws.write(i, 4, answers[2])                 # c
+    ws.write(i, 5, answers[3])                 # d
+    ws.write(i, 6, jawaban_benar)              # jawaban_benar
+
+# Simpan file .xls
+output_file = "output_without_headers.xls"
+wb.save(output_file)
+
+print(f"Konversi selesai. Data disimpan ke '{output_file}'.")
