@@ -1,0 +1,60 @@
+import xml.etree.ElementTree as ET
+import xlwt  # Pustaka untuk menulis file .xls
+
+# Parsing file XML
+tree = ET.parse('xmltoexcelmath_template.xml')  # Ganti dengan file XML Anda
+root = tree.getroot()
+
+# Membuat workbook dan sheet untuk file .xls
+wb = xlwt.Workbook()
+ws = wb.add_sheet('Soal dan Jawaban')
+
+# Add headers
+headers = ['No.', 'Question', 'A', 'B', 'C', 'D', 'Correct Answer']
+for col_index, header in enumerate(headers):
+    ws.write(0, col_index, header)
+
+# Find all questions within the XML structure
+questions = root.findall(".//question")
+
+# Start writing data from row 1
+for i, question in enumerate(questions, start=1):
+    # Extract question description
+    description_element = question.find('description')
+    soal = description_element.text.strip() if description_element is not None else ''
+    
+    # Prepare answer choices and track correct answer
+    answers = []
+    jawaban_benar_index = None
+
+    for idx, answer in enumerate(question.findall('answer')):
+        # Check if 'description' exists and has text
+        description_element = answer.find('description')
+        jawaban = description_element.text.strip() if description_element is not None and description_element.text else ''
+        answers.append(jawaban)
+
+        # Check if this is the correct answer
+        isright_element = answer.find('isright')
+        if isright_element is not None and isright_element.text and isright_element.text.strip().lower() == 'true':
+            jawaban_benar_index = idx
+
+    # Ensure exactly 4 answer choices
+    while len(answers) < 4:
+        answers.append('')
+
+    # Determine the letter of the correct answer
+    jawaban_benar = ['a', 'b', 'c', 'd'][jawaban_benar_index] if jawaban_benar_index is not None else ''
+    
+    # Write data to Excel row
+    ws.write(i, 0, i)                      # Question number
+    ws.write(i, 1, soal)                   # Question text
+    ws.write(i, 2, answers[0])             # Option A
+    ws.write(i, 3, answers[1])             # Option B
+    ws.write(i, 4, answers[2])             # Option C
+    ws.write(i, 5, answers[3])             # Option D
+    ws.write(i, 6, jawaban_benar)          # Correct answer letter
+
+# Save the Excel file
+output_file = "exam_questions.xls"
+wb.save(output_file)
+print(f"Conversion complete. Data saved to '{output_file}'.")

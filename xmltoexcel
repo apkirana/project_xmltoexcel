@@ -2,7 +2,7 @@ import xml.etree.ElementTree as ET
 import xlwt  # Pustaka untuk menulis file .xls
 
 # Parsing file XML
-tree = ET.parse('xmltemplate.xml')  # Ganti dengan file XML Anda
+tree = ET.parse('xmltoexcel_template.xml')  # Ganti dengan file XML Anda
 root = tree.getroot()
 
 # Membuat workbook dan sheet untuk file .xls
@@ -40,7 +40,7 @@ for i, question in enumerate(root.findall(".//question"), start=0):  # Mulai dar
     ws.write(i, 6, jawaban_benar)              # jawaban_benar
 
 # Simpan file .xls
-output_file = "output_without_headers.xls"
+output_file = "output_xmltoexcel.xls"
 wb.save(output_file)
 
 print(f"Konversi selesai. Data disimpan ke '{output_file}'.")

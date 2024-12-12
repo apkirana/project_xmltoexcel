@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tcexamquestions version="1.0">
+    <header lang="en" date="2024-01-15 10:30:00">
+        <exam_name>Mathematics Fundamentals Exam</exam_name>
+        <subject>Basic Mathematics</subject>
+        <total_questions>5</total_questions>
+    </header>
+    <body>
+        <module>
+            <name>Algebra</name>
+            <enabled>true</enabled>
+            <subject>
+                <name>Algebra Basics</name>
+                <description>Fundamental algebraic concepts</description>
+                <enabled>true</enabled>
+                
+                <question>
+                    <enabled>true</enabled>
+                    <type>single</type>
+                    <difficulty>1</difficulty>
+                    <description>What is 2 + 2?</description>
+                    <answer>
+                        <enabled>true</enabled>
+                        <isright>true</isright>
+                        <description>4</description>
+                    </answer>
+                    <answer>
+                        <enabled>true</enabled>
+                        <isright>false</isright>
+                        <description>5</description>
+                    </answer>
+                    <answer>
+                        <enabled>true</enabled>
+                        <isright>false</isright>
+                        <description>3</description>
+                    </answer>
+                    <answer>
+                        <enabled>true</enabled>
+                        <isright>false</isright>
+                        <description>6</description>
+                    </answer>
+                </question>
+            </subject>
+        </module>
+    </body>
+</tcexamquestions>
